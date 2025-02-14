@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 struct Vehicle {
     char marka[40];
@@ -11,7 +12,7 @@ int main() {
     int n;
     printf("Enter the number: ");
     scanf("%d", &n);
-    struct Vehicle transports[n];
+    struct Vehicle *transports = (struct Vehicle*)malloc(sizeof(n));
     for (int i=0; i<n; i++) {
         scanf("%s %s %d %s", &transports[i].marka, &transports[i].model, &transports[i].release_year, &transports[i].type_engine);
     }
@@ -20,5 +21,6 @@ int main() {
         printf("Year: %d\n", transports[i].release_year);
         printf("Engine Type: %s\n", transports[i].type_engine);
     }
+    free(transports);
     return 0;
 }
