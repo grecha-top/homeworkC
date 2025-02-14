@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 struct Employee {
     char name[40];
@@ -10,7 +11,7 @@ int main() {
     int n;
     printf("Enter the количество employeers:\n");
     scanf("%d", &n);
-    struct Employee employeers[n];
+    struct Employee *employeers = (struct Employee*)malloc(sizeof(n));
     for (int i=0; i < n; i++) {
         scanf("%s %s %f", &employeers[i].name, &employeers[i].position, &employeers[i].salary);
     }
@@ -19,5 +20,6 @@ int main() {
         printf("Position: %s\n", employeers[i].position);
         printf("Salary: %.2f\n", employeers[i].salary);
     }
+    free(employeers);
     return 0;
 }
