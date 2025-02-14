@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 struct Item {
     char name[20];
@@ -10,7 +11,7 @@ int main() {
     int n;
     printf("Enter the количество products: \n");
     scanf("%d", &n);
-    struct Item products[n];
+    struct Item *products = (struct Item*)malloc(sizeof(n));
 
     for (int i=0; i<n; i++) {
         scanf("%s %d %f", &products[i].name, &products[i].total, &products[i].price);
@@ -20,5 +21,6 @@ int main() {
         printf("Quantity: %d\n", products[i].total);
         printf("Price: %f\n", products[i].price);
     }
+    free(products);
     return 0;
 }
