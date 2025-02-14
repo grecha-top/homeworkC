@@ -9,7 +9,7 @@ int main() {
     int amount_students;
     printf("Enter the количество students: \n");
     scanf("%d", &amount_students);
-    struct Student arr_student[amount_students];
+    struct Student arr_student[amount_students]; // Это неверное использование статического массива
     for (int i = 0; i < amount_students; i++ ) {
         scanf("%s %d %f", &arr_student[i].name, &arr_student[i].age, &arr_student[i].gpa);
     }
