@@ -1,5 +1,5 @@
 #include <stdio.h>
-
+#include <stdlib.h>
 struct Student {
     char name[20];
     int age;
@@ -9,7 +9,7 @@ int main() {
     int amount_students;
     printf("Enter the количество students: \n");
     scanf("%d", &amount_students);
-    struct Student arr_student[amount_students];
+    struct Student *arr_student = (struct Student*)malloc(sizeof(amount_students));
     for (int i = 0; i < amount_students; i++ ) {
         scanf("%s %d %f", &arr_student[i].name, &arr_student[i].age, &arr_student[i].gpa);
     }
@@ -20,5 +20,6 @@ int main() {
         printf("GPA: %f\n", arr_student[i].gpa);
         printf("\n");
     }
+    free(arr_student);
     return 0;
-}
+} 
